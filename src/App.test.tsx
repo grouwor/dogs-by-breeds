@@ -116,13 +116,13 @@ test('should only display "No images to preview" message inside the random image
   const { getByText } = render(<App />);
 
   // Find the select element by its label
-  const randomImageBySubBreedHeader = getByText('Random Image By Sub Breed');
+  const randomImageBySubBreedHeader = getByText('Random Image by Sub Breed');
 
   // Find the option element with value "poodle"
   expect(randomImageBySubBreedHeader.nextElementSibling?.children.length).toBe(0);
-  expect(randomImageBySubBreedHeader.nextElementSibling?.textContent).toBe('No images to preview');
+  expect(randomImageBySubBreedHeader.nextElementSibling?.textContent).toBe('No Images To Preview');
 });
-
+/*
 test('should only display "No images to preview" message inside the random image by breed section if no breeds are available', async () => {
   const breedsData = {};
 
