@@ -22,10 +22,12 @@ test('should populate breed options on the page load', async () => {
   // Find the select element by its label
   const breedSelect = getByLabelText('Breed:');
 
-  // Find the option element with value "poodle"
-  Object.keys(breedsData).map(breed => {
-    const breedOption = breedSelect.querySelector(`option[value=${breed}`);
-    expect(breedSelect).toContainElement(breedOption as HTMLElement);
+  // Find the option element with the breeds
+  await waitFor(() => {
+    Object.keys(breedsData).map(breed => {
+      const breedOption = breedSelect.querySelector(`option[value=${breed}`);
+      expect(breedSelect).toContainElement(breedOption as HTMLElement);
+    });
   });
 
 });
@@ -48,10 +50,13 @@ test('should populate sub breed options on the page load', async () => {
   // Find the select element by its label
   const subBreedSelect = getByLabelText('Sub Breed:');
 
-  // Find the option element with value "poodle"
-  breedsData['bulldog'].forEach(subBreed => {
-    const subBreedOption = subBreedSelect.querySelector(`option[value=${subBreed}`);
-    expect(subBreedSelect).toContainElement(subBreedOption as HTMLElement);
+  // Find the option element with the sub breeds
+
+  await waitFor(() => {
+    breedsData['bulldog'].forEach(subBreed => {
+      const subBreedOption = subBreedSelect.querySelector(`option[value=${subBreed}`);
+      expect(subBreedSelect).toContainElement(subBreedOption as HTMLElement);
+    });
   });
 });
 
