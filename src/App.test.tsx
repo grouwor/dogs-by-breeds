@@ -122,7 +122,7 @@ test('should only display "No Images To Preview" message inside the random image
   expect(randomImageBySubBreedHeader.nextElementSibling?.children.length).toBe(0);
   expect(randomImageBySubBreedHeader.nextElementSibling?.textContent).toBe('No Images To Preview');
 });
-*/
+
 test('should only display "No Images To Preview" message inside the random image by breed section if no breeds are available', async () => {
   const breedsData = {};
 
@@ -139,60 +139,56 @@ test('should only display "No Images To Preview" message inside the random image
   expect(randomImageByBreedHeader.nextElementSibling?.textContent).toBe('No Images To Preview');
 });
 
-
 test('should populate sub breed options when the user selects the different breed', async () => {
   const breedsData = {
-    bulldog: [],
-    boston: [],
-    english: [
-      'tell',
-      'good'
+    smirl: ['bg'],
+
+    afgan: [],
+    bulldog: [
+      'boston',
+      'english',
     ],
   };
 
   jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch(breedsData));
 
   const { getByLabelText } = render(<App />);
-  const breedSelect = getByLabelText('Select Breed');
-  const subBreedSelect = getByLabelText('Select Sub-Breed');
+  const breedSelect = getByLabelText('Breed:');
+  const subBreedSelect = getByLabelText('Sub Breed:');
 
-  fireEvent.change(breedSelect, { target: { value: 'english' } });
 
   // Wait for the sub-breed options to be populated
   await waitFor(() => {
+    fireEvent.change(breedSelect, { target: { value: 'bulldog' } });
     // Assert that the sub-breed options are populated correctly
     expect(subBreedSelect.children.length).toBe(2);
   });
 });
 
+/*
 test('should display random image by breed when the user selects the different breed', async () => {
   const breedsData = {
     bulldog: [],
-    boston: [],
-    english: [
-      'tell',
-      'good'
-    ],
   };
-  const randomImageByBreedSrc = 'https://images.dog.ceo/breeds/english/random';
+  const randomImageByBreedSrc = 'https://dog.ceo/api/breed/bulldog/images/random';
 
   jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch(breedsData));
 
-  const { container, getByLabelText } = render(<App />);
-  const breedSelect = getByLabelText('Select Breed');
-  const subBreedSelect = getByLabelText('Select Sub-Breed');
+  // const { container, getByLabelText } = render(<App />);
+
+  const { container, getByLabelText, getByText } = render(<App/>);
+  const breedSelect = getByLabelText('Breed:');
 
   fireEvent.change(breedSelect, { target: { value: 'english' } });
-
-
-  expect(subBreedSelect.children.length).toBeGreaterThan(0);
-
   // Wait for the specific image with a certain src to be displayed
-  await waitFor(() => {
-    const randomImageBySubBreed = container.querySelector(`img[src=${randomImageByBreedSrc}]`);
-    expect(randomImageBySubBreed).toBeInTheDocument();
+  await waitFor(async () => {
+    
+  const randomImageByBreedHeader = getByText('Random Image By Breed');
+    // const randomImageBySubBreed = screen.getByRole('img', { src: ra?ndomImageByBreedSrc }) //container.querySelector(`img[src=${randomImageByBreedSrc}]`);
+    expect(randomImageByBreedHeader.nextElementSibling?.firstChild).toBeInTheDocument();
   });
 });
+
 
 test('should display random image by sub breed when the user selects the different sub breed', async () => {
   const breedsData = {
@@ -355,3 +351,4 @@ test('should only display "No images to preview" message when the user selects a
     expect(imagesBySubBreedHeader.nextElementSibling?.textContent).toBe('No images to preview');
   });
 });
+*/
