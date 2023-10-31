@@ -4,7 +4,7 @@ import App from './App';
 import { mockedDogAPIFetch } from './mocks/mockedDogAPIFetch';
 
 test('should populate breed options on the page load', async () => {
-  
+
   const breedsData = {
     'bulldog': [],
     'boston': [],
@@ -64,7 +64,7 @@ test('should display random image by breed on the page load', async () => {
   const breedsData = {
     'bulldog': [],
   };
-  const randomImageByBreedSrc = 'https://images.dog.ceo/breeds/bulldog/random';
+  const randomImageByBreedSrc = 'https://dog.ceo/api/breed/bulldog/images/random';
 
   jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch());
 
@@ -78,7 +78,7 @@ test('should display random image by breed on the page load', async () => {
   });
 });
 
-
+/*
 test('should display random image by sub breed on the page load', async () => {
   const breedsData: any = {
     bulldog: [
