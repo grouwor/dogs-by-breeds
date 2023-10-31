@@ -78,27 +78,28 @@ test('should display random image by breed on the page load', async () => {
   });
 });
 
-/*
+
 test('should display random image by sub breed on the page load', async () => {
   const breedsData: any = {
     bulldog: [
       'english'
     ],
   };
-  const randomImageByBreedSrc = 'https://images.dog.ceo/breeds/bulldog-english/random';
+  const randomImageBySubBreedSrc = 'https://dog.ceo/api/breed/bulldog/english/images/random';
 
-  jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch());
+  jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch(breedsData));
 
   // Render the component that contains the images
   const { container } = render(<App />);
 
   // Wait for the specific image with a certain src to be displayed
   await waitFor(() => {
-    const randomImageBySubBreed = container.querySelector(`img[src='${randomImageByBreedSrc}']`);
+    const randomImageBySubBreed = container.querySelector(`img[src='${randomImageBySubBreedSrc}']`);
     expect(randomImageBySubBreed).toBeInTheDocument();
   });
-});
 
+});
+/*
 test('should only display "No images to preview" message inside the random image by sub breed section if no sub breeds are available', async () => {
   const breedsData = {
     bulldog: [

@@ -8,16 +8,16 @@ const defaultBreedsData = {
 
 const defaultImages = {
   bulldog: [
-    'https://images.dog.ceo/breeds/bulldog-boston/20200710_175933.jpg',
-    'https://images.dog.ceo/breeds/bulldog-boston/20200710_175944.jpg',
-    'https://images.dog.ceo/breeds/bulldog-english/bunz.jpg',
+    'https://dog.ceo/api/breeds/bulldog-boston/20200710_175933.jpg',
+    'https://dog.ceo/api/breeds/bulldog-boston/20200710_175944.jpg',
+    'https://dog.ceo/api/breeds/bulldog-english/bunz.jpg',
   ],
   'bulldog-boston': [
-    'https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg'
+    'https://dog.ceo/api/breeds/bulldog-english/jager-1.jpg'
   ],
   'bulldog-english': [
-    'https://images.dog.ceo/breeds/bulldog-english/jager-2.jpg',
-    'https://images.dog.ceo/breeds/bulldog-english/mami.jpg',
+    'https://dog.ceo/api/breeds/bulldog-english/jager-2.jpg',
+    'https://dog.ceo/api/breeds/bulldog-english/mami.jpg',
   ]
 };
 
@@ -25,7 +25,7 @@ const defaultImages = {
 const breedImagesPattern = /^https:\/\/dog\.ceo\/api\/breed\/(\w+)\/images$/;
 const subBreedImagesPattern = /^https:\/\/dog\.ceo\/api\/breed\/(\w+)\/(\w+)\/images$/;
 const randomBreedImagePattern = /^https:\/\/dog\.ceo\/api\/breed\/(\w+)\/images\/random$/;
-const randomSubBreedImagePattern = /^https:\/\/dog\.ceo\/api\/breeds\/(\w+)\/(\w+)\/image\/random$/;
+const randomSubBreedImagePattern = /^https:\/\/dog\.ceo\/api\/breed\/(\w+)\/(\w+)\/images\/random$/;
 
 /**
  * Mocked fetch function for the Dog API
