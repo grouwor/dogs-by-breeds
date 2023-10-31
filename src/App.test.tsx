@@ -99,8 +99,8 @@ test('should display random image by sub breed on the page load', async () => {
   });
 
 });
-/*
-test('should only display "No images to preview" message inside the random image by sub breed section if no sub breeds are available', async () => {
+
+test('should only display "No Images To Preview" message inside the random image by sub breed section if no sub breeds are available', async () => {
   const breedsData = {
     bulldog: [
       'tell',
@@ -116,14 +116,14 @@ test('should only display "No images to preview" message inside the random image
   const { getByText } = render(<App />);
 
   // Find the select element by its label
-  const randomImageBySubBreedHeader = getByText('Random Image by Sub Breed');
+  const randomImageBySubBreedHeader = getByText('Random Image By Sub Breed');
 
   // Find the option element with value "poodle"
   expect(randomImageBySubBreedHeader.nextElementSibling?.children.length).toBe(0);
   expect(randomImageBySubBreedHeader.nextElementSibling?.textContent).toBe('No Images To Preview');
 });
-/*
-test('should only display "No images to preview" message inside the random image by breed section if no breeds are available', async () => {
+*/
+test('should only display "No Images To Preview" message inside the random image by breed section if no breeds are available', async () => {
   const breedsData = {};
 
   jest.spyOn(window, 'fetch').mockImplementation(mockedDogAPIFetch(breedsData));
